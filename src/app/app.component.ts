@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rest-countries-api';
+  selectedRegion: string | undefined;
+
+  onRegionSelected(region: string) {
+    this.selectedRegion = region;
+  }
 }

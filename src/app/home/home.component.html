@@ -1,6 +1,14 @@
+<h2>Country</h2>
 <div *ngFor="let country of countries">
-  <h2>{{ country.name }}</h2>
-  <p>Capital: {{ country.country_name }}</p>
-  <p>Country Short Name: {{ country.country_short_name }}</p>
-  <p>Country Code: {{ country.country_phone_code }}</p>
+  <h5>{{ country.country_name }}</h5>
+  <span>
+  <a>Short name: {{ country.country_short_name }}</a>
+  <a>Code: {{ country.country_phone_code }}</a>
+  </span>
+</div>
+<div class="button-container">
+  <button (click)="toggleOptions()">Filter</button>
+  <ul *ngIf="showOptions">
+    <li *ngFor="let region of regions">{{ region }}</li>
+  </ul>
 </div>

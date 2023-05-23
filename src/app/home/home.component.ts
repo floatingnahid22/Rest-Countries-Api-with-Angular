@@ -16,6 +16,13 @@ export class HomeComponent implements OnInit {
     this.getToken();
   }
 
+  showOptions = false;
+  regions = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Australia', 'Antarctica'];
+
+  toggleOptions() {
+    this.showOptions = !this.showOptions;
+  }
+
   getToken() {
     this.countriesInfoService.getAccessToken().subscribe(response => {
       console.log(response);
