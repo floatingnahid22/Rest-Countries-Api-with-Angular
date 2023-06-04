@@ -1,9 +1,7 @@
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.country-nav {
+  background-color: #98bfd6;
 }
 
-.button-container button {
-  margin-bottom: 10px;
+.country-body {
+  background-color: #f5f7f3dc;
 }

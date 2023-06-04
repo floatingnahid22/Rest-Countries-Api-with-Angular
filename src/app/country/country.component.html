@@ -1,0 +1,17 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading">
+<div class="card" style="width: 18rem;" *ngFor="let country of countries">
+  <img [src]="country.flag" class="card-img-top" alt="Flag">
+  <div class="card-body">
+    <h5 class="card-title">{{ country.name }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Code: {{ country.alpha3Code }}</li>
+    <li class="list-group-item">Capital: {{ country.capital }}</li>
+    <li class="list-group-item">Region: {{ country.region }}</li>
+    <li class="list-group-item">Area: {{ country.area }}</li>
+    <li class="list-group-item">Currency: {{ getCurrencyNames(country) }}</li>
+    <li class="list-group-item">Languages: {{ getLanguageNames(country) }}</li>
+  </ul>
+</div>
+</div>
