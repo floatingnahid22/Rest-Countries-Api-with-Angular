@@ -1,44 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { CountriesInfoService } from '../services/countries-info.service';
+import axios from 'axios';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   countries: any = [];
 
-  constructor(private countriesInfoService: CountriesInfoService) { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.getToken();
+    this.fetchCountries();
   }
 
-  showOptions = false;
-  regions = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Australia', 'Antarctica'];
+  fetchCountries() {
+    const apiUrl = 'https://restcountries.com/v2/all';
 
-  toggleOptions() {
-    this.showOptions = !this.showOptions;
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        this.countries = response.data;
+      })
+      .catch((error) => {
+        console.error('Error fetching countries:', error);
+      });
   }
 
-  getToken() {
-    this.countriesInfoService.getAccessToken().subscribe(response => {
-      console.log(response);
-      const authToken = response.auth_token;
-      console.log(authToken);
-      this.makeApiCall(authToken);
-    });
+  getCurrencyNames(country: any): string {
+    return country.currencies.map((currency: any) => currency.name).join(', ');
   }
-
-  makeApiCall(authToken: string) {
-    this.countriesInfoService.makeApiCall(authToken).subscribe(response => {
-      console.log(response);
-      this.countries = response; // Store the country information in the 'countries' variable
-    }, error => {
-      console.error(error);
-      // Handle any errors here
-    });
+  
+  getLanguageNames(country: any): string {
+    return country.languages.map((language: any) => language.name).join(', ');
   }
+  
 }
