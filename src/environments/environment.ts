@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://www.universal-tutorial.com/api/',
+  apiUrl: 'https://restcountries.com/v2/all',
 };

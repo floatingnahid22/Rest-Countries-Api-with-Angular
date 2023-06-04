@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import axios from 'axios';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-country',
@@ -20,7 +21,7 @@ export class CountryComponent implements OnInit {
   }
 
   fetchCountries() {
-    const apiUrl = 'https://restcountries.com/v2/all';
+    const apiUrl = environment.apiUrl;
     this.loading = true;
 
     axios
