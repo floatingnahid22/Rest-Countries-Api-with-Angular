@@ -1,5 +1,7 @@
 # Rest-Countries-Api-with-Angular
 
+[![countries-api-project](https://i.postimg.cc/1RWdFmX4/countries-api.png)](https://countriesapiv2.netlify.app/home)
+
 ## How to run this Project?
 
 <p>
