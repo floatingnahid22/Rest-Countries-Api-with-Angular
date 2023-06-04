@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   searchTerm: string = '';
+  selectedTheme: string = 'light';
+  themeTitle: string = 'Light';
 
   searchCountries() {
     if (this.searchTerm.trim() !== '') {
@@ -14,5 +16,10 @@ export class HomeComponent {
     } else {
       console.log('Empty search term');
     }
+  }
+
+  toggleTheme() {
+    this.selectedTheme = this.selectedTheme === 'light' ? 'dark' : 'light';
+    this.themeTitle = this.selectedTheme === 'dark' ? 'Dark' : 'Light';
   }
 }

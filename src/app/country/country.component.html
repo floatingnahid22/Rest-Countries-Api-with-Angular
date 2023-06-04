@@ -2,7 +2,6 @@
 <div *ngIf="!loading">
   <div>
     <input type="text" [(ngModel)]="searchTerm" placeholder="Search by country name" />
-    <button (click)="filterCountries()">Search</button>
   </div>
   <div class="country-grid">
     <div class="country-card" *ngFor="let country of getPaginatedCountries()">

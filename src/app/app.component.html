@@ -1,1 +1,3 @@
-<router-outlet></router-outlet>
+<div [ngClass]="selectedTheme === 'dark' ? 'dark-theme' : 'light-theme'">
+  <app-home></app-home>
+</div>
